@@ -3,6 +3,8 @@ import ErrorIndicator from '../error-indicator';
 
 export default class ErrorBoundry extends Component {
   constructor() {
+    super();
+
     this.state = {
       hasError: false
     };
