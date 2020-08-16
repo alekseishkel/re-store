@@ -6,13 +6,15 @@ const ShoppingCartTable = () => {
   return (
     <div className="shopping-cart-table">
       <h2>Your Order</h2>
-      <table>
+      <table className="table">
         <thead>
-          <th>#</th>
-          <th>Item</th>
-          <th>Count</th>
-          <th>Price</th>
-          <th>Action</th>
+          <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Count</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
         </thead>
 
         <tbody>
@@ -37,7 +39,7 @@ const ShoppingCartTable = () => {
       </table>
 
       <div className="total">
-        $201
+        Total: $201
       </div>
     </div>
   )
