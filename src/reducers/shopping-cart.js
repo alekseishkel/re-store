@@ -56,8 +56,8 @@ const updateShoppingCart = (state, action) => {
     return {
       cartItems: [],
       orderTotal: 0
-    }
-  }
+    };
+  };
 
   switch (action.type) {
     case 'BOOK_ADDED_TO_CART':
