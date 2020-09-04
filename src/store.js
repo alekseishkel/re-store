@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-
+import thunkMiddleware from 'redux-thunk';
 import reducer from './reducers';
 
 const logMiddlewate = (store) => (next) => (action) => {
@@ -16,7 +16,7 @@ const stringMiddleware = () => (next) => (action) => {
   return next(action);  
 };
 
-const store = createStore(reducer, applyMiddleware(stringMiddleware, logMiddlewate));
+const store = createStore(reducer, applyMiddleware(thunkMiddleware, stringMiddleware, logMiddlewate));
 
 store.dispatch('Hello World')
 
