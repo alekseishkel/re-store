@@ -3,7 +3,6 @@ import thunkMiddleware from 'redux-thunk';
 import reducer from './reducers';
 
 const logMiddlewate = (store) => (next) => (action) => {
-  console.log(action.type, store.getState());
   return next(action);
 }
 

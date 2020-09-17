@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ShopHeader from '../shop-header';
-import { HomePage, CartPage } from '../pages';
+import { HomePage } from '../pages';
 
 import './app.css';
 
@@ -14,7 +14,6 @@ const App = () => {
     <ShopHeader numItems={5} total={220} />
     <Switch>
       <Route path="/" component={HomePage} exact />
-      <Route path="/cart" component={CartPage} />
     </Switch>
     </main>
   )

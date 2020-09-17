@@ -32,21 +32,28 @@ const changeCartItem = (book, item = {}, quantity) => {
     id,
     title,
     count: count + quantity,
-    total: total + quantity * book.price
+    total: total + quantity * book.price,
   }
 };
 
+const updateTotalOrder = (orderTotal, book, quantity) => {
+  console.log(orderTotal)
+  orderTotal = orderTotal + quantity * book.price;
+  return orderTotal;
+};
+
 const updateOrder = (state, bookId, quantity) => {
-  const { bookList: { books }, shoppingCart: { cartItems } } = state;
+  const { bookList: { books }, shoppingCart: { cartItems, orderTotal } } = state;
 
   const book = books.find(({ id }) => id === bookId);
   const itemIndex = cartItems.findIndex(({ id }) => id === bookId);
   const item = cartItems[itemIndex];
 
   const newItem = changeCartItem(book, item, quantity);
+  const totalOrder = updateTotalOrder(orderTotal, book, quantity);
 
   return {
-    orderTotal: 0,
+    orderTotal: totalOrder,
     cartItems: addCartItems(cartItems, newItem, itemIndex)
   };
 };
@@ -61,6 +68,7 @@ const updateShoppingCart = (state, action) => {
 
   switch (action.type) {
     case 'BOOK_ADDED_TO_CART':
+      console.log(state)
       return updateOrder(state, action.payload, 1);
 
     case 'BOOK_DECREASED_IN_CART':
